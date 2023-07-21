@@ -1,0 +1,11 @@
+{
+  "name": "restaurant",
+  "displayName": "restaurant",
+  "icon": "./assets/icon.png",
+    "backgroundColor": "#24180f",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    }
+}
