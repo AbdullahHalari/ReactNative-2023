@@ -1,8 +1,8 @@
 import {Text, View, StyleSheet, Pressable} from 'react-native';
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 function Home({  navigation }) {
+   
     return (
       <View>
         <View style={styles.Box_white}>
@@ -16,7 +16,8 @@ function Home({  navigation }) {
           </Pressable>
         </View>
         <View style={styles.Box_white}>
-          <Pressable onPress={() => navigation.navigate('Favorites')}>
+          <Pressable onPress={() => {
+            navigation.navigate('Favorites')}}>
             <Icon
               name="heart"
               size={50}
