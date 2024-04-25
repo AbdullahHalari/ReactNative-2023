@@ -7,6 +7,7 @@ import App from './App';
 import {name as appName} from './app.json';
 import PushNotification from 'react-native-push-notification';
 import  {Platform} from 'react-native'
+import messaging from '@react-native-firebase/messaging';
 
 PushNotification.configure({
   // (optional) Called when Token is generated (iOS and Android)
@@ -21,7 +22,7 @@ PushNotification.configure({
     // process the notification
 
     // (required) Called when a remote is received or opened, or local notification is opened
-    notification.finish(PushNotificationIOS.FetchResult.NoData);
+    notification.finish(PushNotification.FetchResult.NoData);
   },
     permissions: {
     alert: true,
@@ -34,4 +35,12 @@ PushNotification.configure({
   popInitialNotification: true,
     requestPermissions: Platform.OS === 'ios',
 })
+messaging().setBackgroundMessageHandler(async remoteMessage => {
+  console.log('Message handled in the background!', remoteMessage);
+});
+
+messaging().getInitialNotification(async remoteMessage => {
+  console.log('Message handled in the kill!', remoteMessage);
+});
+
 AppRegistry.registerComponent(appName, () => App);

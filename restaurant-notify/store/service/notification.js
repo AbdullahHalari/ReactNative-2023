@@ -1,4 +1,4 @@
-import PushNotification from 'react-native-push-notification';
+import * as PushNotification from 'react-native-push-notification';
 
 class NotificationService {
 //   configure = () => {  
@@ -27,6 +27,7 @@ class NotificationService {
   };
 
   sendLocalNotification = message => {
+    
     PushNotification.localNotification({
       channelId: 'reschannel-id',
       title: 'Local Notification',
@@ -34,6 +35,7 @@ class NotificationService {
       channelId: 'default-channel-id', // Specify the channel ID
       picture:
         'https://educationwireonline.web.app/static/media/mainpageimage.153ab7957e6162f9c941.jpg',
+      color: 'red',
     });
     console.log('done')
   };
